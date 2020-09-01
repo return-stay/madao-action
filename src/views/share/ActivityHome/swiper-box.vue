@@ -234,14 +234,14 @@ export default {
     height: .4rem
     font-size .22rem
     font-weight 400
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     padding: 0 .24rem;
     border-top-right-radius: .24rem
     border-bottom-right-radius .24rem
     width: 100%;
     box-sizing: border-box;
-    color #fff
-    opacity .5
+    color #000
+    opacity .4
   }
   .bei-top-user-item-img {
     width .3rem;

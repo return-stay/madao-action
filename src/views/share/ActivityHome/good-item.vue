@@ -6,8 +6,10 @@
             <span>{{goodsItem.subTitle}}</span> -->
 
             <div class="grid-box">
-              <img class="grid-img" src="../../../assets/img/grid.png" alt="">
-              <img class="grid-img" src="../../../assets/img/grid.png" alt="">
+              <bar-line />
+              <bar-line />
+              <!-- <img class="grid-img" src="../../../assets/img/grid.png" alt="">
+              <img class="grid-img" src="../../../assets/img/grid.png" alt=""> -->
             </div>
         </div>
 
@@ -30,8 +32,10 @@
 
 <script>
 import {mobileType} from '../../../untils/util'
+import BarLine from '../../../components/BarLine'
 export default {
   name: 'GoodItem',
+  components: {BarLine},
   data() {
     return {
       shareText: '在吗？推荐你看看国惠商城，优质好 大米免费请你吃～',
@@ -130,7 +134,7 @@ export default {
 
 .grid-box {
   position: absolute;
-  bottom: -.44rem;
+  bottom: -0.36rem;
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;

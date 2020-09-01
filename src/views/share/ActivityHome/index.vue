@@ -1,21 +1,26 @@
 <template>
     <div class="a-box">
         <div class="a-top-bg">
+            <div class="a-top-name">
+              <img src="~@/assets/img/action-name.png" alt="">
+            </div>
             <img src="~@/assets/img/Burst.png" alt />
         </div>
 
-        <div class="a-fixed" @click="goShare" v-if="env === 'ios' || env==='android'">
+        <!-- <div class="a-fixed" @click="goShare" v-if="env === 'ios' || env==='android'">
             <img src="~@/assets/img/share_icon.png" alt />
-        </div>
+        </div> -->
 
         <swiper-box :swiperList="swiperList" v-if="swiperList"></swiper-box>
-        <div v-for="item in productDTOList" :key="item.productId">
-          <good-item :goodsItem="item" >
-            <img class="a-item-cont-img" :src="item.productCover" alt="">
-          </good-item>
-        </div>
-        <div class="a-rule">
-          <img src="~@/assets/img/guize.png" alt="">
+        <div class="ah-cont">
+          <div v-for="item in productDTOList" :key="item.productId">
+            <good-item :goodsItem="item" >
+              <img class="a-item-cont-img" :src="item.productCover" alt="">
+            </good-item>
+          </div>
+          <div class="a-rule">
+            <img src="~@/assets/img/guize.png" alt="">
+          </div>
         </div>
     </div>
 </template>
@@ -78,13 +83,13 @@ export default {
       goShare() {
         const token = this.$route.query.token
         const shareCode = this.$route.query.sharecode || getCookie('sharecode')
-        this.$router.push({
-          path: '/invitation-gifts',
-          query: {
-            token: token,
-            sharecode: shareCode,
-          }
-        })
+        // this.$router.push({
+        //   path: '/invitation-gifts',
+        //   query: {
+        //     token: token,
+        //     sharecode: shareCode,
+        //   }
+        // })
       }
     }
 };
@@ -93,23 +98,41 @@ export default {
 <style scoped>
 .a-box {
     font-size: 0.32rem;
-    background-color: #e8393e;
+    background-color: #6C268C;
     min-height: 100vh;
     padding-bottom: 0.4rem;
 }
 .a-top-bg {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .a-top-bg > img {
     width: 100%;
 }
+.a-top-name {
+  width: 6.88rem;
+  position: absolute;
+  top: 2.34rem;
+}
+.a-top-name>img {
+  width: 100%;
+}
 .a-fixed {
     position: fixed;
-    right: 0rem;
+    right: 0.2rem;
     top: 67%;
-    width: 2.44rem;
-    height: 50px;
+    width: 2.86rem;
+    height: 2.38rem;
     z-index: 100;
+}
+.ah-cont {
+  position: absolute;
+  top: 7.52rem;
+  width: 100%;
+  text-align: center;
+  background-color: #6C268C;
+  padding-bottom: 0.4rem;
 }
 
 .a-fixed > img {
