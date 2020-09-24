@@ -97,7 +97,7 @@ export default {
     getTradePay(orderNo) {
       const { token } = this.$route.query
       this.$http.fetchPost(TradePay, {
-        payType: 'APP',
+        payType: 'ZERO_PAY',
         orderNo: orderNo,
       }, {
         token: token,
