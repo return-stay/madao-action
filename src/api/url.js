@@ -5,6 +5,10 @@ const baseUrl2 = 'https://api.sczxpm.com/api' // 生产
 // const baseUrlApi = 'http://120.27.62.181:8808/' //测试
 const baseUrlApi = 'https://www.gzwmall.com/api'
 
+// 联通365活动
+// const UnicomBaseApi = 'http://120.27.62.181:8808' //测试
+const UnicomBaseApi = 'https://www.gzwmall.com/api' //生产
+
 const getAuctionInfo = `${baseUrl}/auction/getPaipinById`,
   guessLike = 'https=//api.sczxpm.com/api/index/queryAnalogous',
   getRotation = `${baseUrl2}/megaEvents/getRotation`,
@@ -29,7 +33,13 @@ const getAuctionInfo = `${baseUrl}/auction/getPaipinById`,
   ActivityShare = baseUrlApi +'/activity/v1/share', // 分享
 
   ActivityJoinActAndCoupon = baseUrlApi + '/activity/v1/joinActAndCoupon',
-  ActivityCheckJoinAct = baseUrlApi + '/activity/v1/checkJoinAct'
+  ActivityCheckJoinAct = baseUrlApi + '/activity/v1/checkJoinAct',
+
+  PrizeQueryCode = UnicomBaseApi + '/prize/v1/queryCode', //查询兑换码
+  PrizeExchangeCode = UnicomBaseApi + '/prize/v1/exchangeCode', //兑换码 提交订单
+  AddressDetail = UnicomBaseApi + '/address/v1/detail', //获取地址详情
+  AddressList = UnicomBaseApi + '/address/v1/list', //获取地址列表
+  TradePay = UnicomBaseApi + '/trade/v1/pay' //支付接口
 
 export { 
   getAuctionInfo,
@@ -56,4 +66,10 @@ export {
   ActivityShare,
   ActivityJoinActAndCoupon,
   ActivityCheckJoinAct,
+  UnicomBaseApi,
+  PrizeQueryCode,
+  PrizeExchangeCode,
+  AddressDetail,
+  AddressList,
+  TradePay,
 }

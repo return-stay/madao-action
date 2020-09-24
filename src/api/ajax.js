@@ -33,6 +33,7 @@ export default {
           params: params
         })
         .then(res => {
+          console.log(res)
           resolve(res.data)
         })
         .catch(error => {
@@ -42,10 +43,22 @@ export default {
         })
     })
   },
-  fetchPost (url, params = {}) {
+
+  fetchPost (url, data = {}, params = null) {
+    let purl = url
+    let paramsStr = ''
+    if(params) {
+      for (const key in params) {
+        paramsStr += `${key}=${params[key]}`
+      }
+      purl = purl + "?" + paramsStr
+    }
+
+    
+   
     return new Promise((resolve, reject) => {
       axios
-        .post(url, params)
+        .post(purl, data)
         .then(res => {
           resolve(res.data)
         })

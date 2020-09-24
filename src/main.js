@@ -10,7 +10,9 @@ Vue.prototype.$http = http
 import Vant from 'vant'
 // import { Lazyload } from 'vant'
 // new VConsole()
+import 'swiper/css/swiper.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 
 // import style
 // import 'swiper/css/swiper.css'
@@ -25,7 +27,7 @@ Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 // Vue.use(Progress)
 // Vue.use(Button)
 // import Vant from 'vant'
-// import 'vant/lib/index.css'
+import 'vant/lib/index.css'
 Vue.use(Vant)
 
 Vue.config.productionTip = false
