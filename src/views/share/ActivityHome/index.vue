@@ -54,7 +54,7 @@ export default {
         // console.log(this.$route.query)
         const code = this.$route.query.code || ''
         let params = {
-          // code: '520',
+          // code: 'dance',
           code,
           share: shareCode,
         }
