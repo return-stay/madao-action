@@ -76,7 +76,8 @@ export default {
 .co-box {
   min-height: 100%;
   background-color: #f9f9f9;
-  padding: 0.72rem 0.84rem 0
+  padding: 0.72rem 0.84rem 0;
+  box-sizing: border-box;
 }
 .co-title {
   font-size: 0.3rem;
