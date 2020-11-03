@@ -10,7 +10,7 @@ const routes = [
   // },
   {
     path: '/',
-    redirect: '/activity-home'
+    redirect: '/invitation-gifts'
   },
   {
     path: '/activity-home',
