@@ -10,7 +10,7 @@ const routes = [
   // },
   {
     path: '/',
-    redirect: '/conversion'
+    redirect: '/unicom365'
   },
   {
     path: '/activity-home',
