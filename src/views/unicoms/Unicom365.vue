@@ -36,7 +36,6 @@ export default {
     }
   },
   mounted() {
-    // console.log(UnicomBaseApi)
     document.title = '联通365活动'
     this.getDetail()
   },

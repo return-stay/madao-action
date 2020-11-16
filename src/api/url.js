@@ -1,13 +1,18 @@
-const baseUrl = 'https://kszx.council.com.cn'
-// const baseUrl2 = 'http://39.97.231.232=8805' // 测试
-const baseUrl2 = 'https://api.sczxpm.com/api' // 生产
 
-// const baseUrlApi = 'http://120.27.62.181:8808/' //测试
-const baseUrlApi = 'https://www.gzwmall.com/api'
 
-// 联通365活动
-// const UnicomBaseApi = 'http://120.27.62.181:8808' //测试
-const UnicomBaseApi = 'https://www.gzwmall.com/api' //生产
+let baseUrl = '', baseUrl2 = '', baseUrlApi = '', madaoBaseUrl = '';
+if (process.env.NODE_ENV === "development") {
+  baseUrl = ''  //本地代理求地址
+  baseUrl2 = 'http://39.97.231.232:8805'
+  baseUrlApi = 'http://120.27.62.181:8808'
+  madaoBaseUrl = 'https://shop.madao100.com/api' //码道接口
+} else {
+  baseUrl = 'https://kszx.council.com.cn' //线上请求地址
+  baseUrl2 = 'https://api.sczxpm.com/api'
+  baseUrlApi = 'https://www.gzwmall.com/api'
+  madaoBaseUrl = 'https://shop.madao100.com/api'
+}
+
 
 const getAuctionInfo = `${baseUrl}/auction/getPaipinById`,
   guessLike = 'https=//api.sczxpm.com/api/index/queryAnalogous',
@@ -35,11 +40,11 @@ const getAuctionInfo = `${baseUrl}/auction/getPaipinById`,
   ActivityJoinActAndCoupon = baseUrlApi + '/activity/v1/joinActAndCoupon',
   ActivityCheckJoinAct = baseUrlApi + '/activity/v1/checkJoinAct',
 
-  PrizeQueryCode = UnicomBaseApi + '/prize/v1/queryCode', //查询兑换码
-  PrizeExchangeCode = UnicomBaseApi + '/prize/v1/exchangeCode', //兑换码 提交订单
-  AddressDetail = UnicomBaseApi + '/address/v1/detail', //获取地址详情
-  AddressList = UnicomBaseApi + '/address/v1/list', //获取地址列表
-  TradePay = UnicomBaseApi + '/trade/v1/pay' //支付接口
+  PrizeQueryCode = madaoBaseUrl + '/prize/v1/queryCode', //查询兑换码
+  PrizeExchangeCode = madaoBaseUrl + '/prize/v1/exchangeCode', //兑换码 提交订单
+  AddressDetail = madaoBaseUrl + '/address/v1/detail', //获取地址详情
+  AddressList = madaoBaseUrl + '/address/v1/list', //获取地址列表
+  TradePay = madaoBaseUrl + '/trade/v1/pay' //支付接口
 
 export { 
   getAuctionInfo,
@@ -66,7 +71,7 @@ export {
   ActivityShare,
   ActivityJoinActAndCoupon,
   ActivityCheckJoinAct,
-  UnicomBaseApi,
+  madaoBaseUrl,
   PrizeQueryCode,
   PrizeExchangeCode,
   AddressDetail,
