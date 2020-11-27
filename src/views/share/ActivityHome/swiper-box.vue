@@ -154,7 +154,6 @@ export default {
         mobileType((style) => {
           switch(style) {
             case 'ios':
-              console.log('MyJSInterface.intentGoodsInfo')
               window.location.href = `intentGoodsInfo?id=${id}`
             break;
             case 'android':
