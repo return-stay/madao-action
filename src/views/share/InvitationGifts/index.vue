@@ -116,7 +116,7 @@
 <script>
 import Swiper from "swiper"
 import {formatDate,getCookie} from '../../../untils/util'
-import {inviteNow,shareBillImage,ticketActivityIndex, ActivityInvitationRank, ActivityInvitationForMe, ActivityShare, } from '../../../api/url'
+import { ActivityInvitationRank, ActivityInvitationForMe, ActivityShare, } from '../../../api/url'
 export default {
   data () {
     return {

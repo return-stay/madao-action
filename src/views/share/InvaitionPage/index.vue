@@ -89,7 +89,7 @@
 import GoodItem from "../ActivityHome/good-item";
 import Dialog from '@/components/Dialog'
 import { getStatusAndTime, mobileType } from '@/untils/util'
-import {ActivityJoinActAndCoupon, ActivityCheckJoinAct, attendShareActivity,queryRecAuction} from '../../../api/url'
+import {ActivityJoinActAndCoupon, ActivityCheckJoinAct } from '../../../api/url'
 export default {
   data() {
     return {
@@ -168,24 +168,8 @@ export default {
       const token = this.$route.query.token
       const shareCode = this.$route.query.sharecode
       this.$http.fetchGet(ActivityCheckJoinAct, {code: 'invitation',token: token, shareCode }).then(res => {
-        console.log('attendShareActivity:', res)
         if (res.code === 100) {
           this.activityCheckJoinActCode = res.data
-        }
-      })
-    },
-    queryRecAuction() {
-      let params = {
-        md5Str: this.$route.query.md5Str
-      }
-      this.$http.fetchGet(queryRecAuction, params).then(res => {
-        if (res.code === 100) {
-          this.recommendList = res.data.auctionList
-          this.recommendList && this.recommendList.forEach(item => {
-            item.countdownLabel = getStatusAndTime(new Date(item.startTimestamp).getTime(), new Date(item.endTimestamp).getTime()).countdownLabel
-            item.countdownTime = getStatusAndTime(new Date(item.startTimestamp).getTime(), new Date(item.endTimestamp).getTime()).countdownTime
-          })
-          console.log('recommendList:', res.data)
         }
       })
     },

@@ -23,11 +23,6 @@ const routes = [
     name: 'InvitationGifts'
   },
   {
-    path: '/special-topic',
-    component: () => import('@/views/share/SpecialTopic'),
-    name: 'SpecialTopic'
-  },
-  {
     path: '/invaition-rule',
     component: () => import('@/views/share/InvaitionRule'),
     name: 'InvaitionRule'
