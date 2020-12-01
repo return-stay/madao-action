@@ -10,7 +10,7 @@ const routes = [
   // },
   {
     path: '/',
-    redirect: '/unicom365'
+    redirect: '/sheep'
   },
   {
     path: '/activity-home',
@@ -52,6 +52,12 @@ const routes = [
     path: '/conversion',
     component: () => import('@/views/unicoms/Conversion'),
     name: 'Conversion'
+  },
+  // 羊活动
+  {
+    path: '/sheep',
+    component: () => import('@/views/sheep/index'),
+    name: 'Sheep'
   },
 ]
 

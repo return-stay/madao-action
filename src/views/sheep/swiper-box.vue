@@ -2,7 +2,8 @@
     <div class="subtitles swiper-container" id="barrage">
         <div class="bei-top-user-box" v-if="isUserDTOShow">
             <div class="bei-top-user-item">
-                <img class="bei-top-user-item-img" :src="userDtoItem.headimageurl" alt />
+                <img class="bei-top-user-item-img" v-if="userDtoItem.headimageurl" :src="userDtoItem.headimageurl" alt />
+                <img class="bei-top-user-item-img" v-else src="~@/assets/img/user_bg.png" alt />
                 <span>{{userDtoItem.name}} {{userDtoItem.content}}</span>
             </div>
         </div>
@@ -10,8 +11,7 @@
 </template>
 
 <script>
-// import Swiper from "swiper"
-import { mobileType } from '../../../untils/util'
+import { mobileType } from '../../untils/util'
 export default {
     name: "SwiperBox",
     data() {
@@ -41,7 +41,6 @@ export default {
         let falseDate = this.falseDate();
         let newUserDTOList = userDTOList.concat(falseDate);
         this.userDtoItem = newUserDTOList[0];
-        console.log(this.userDtoItem)
         let numlength = newUserDTOList.length;
         setTimeout(() => {
             this.isUserDTOShow = false;
@@ -52,7 +51,6 @@ export default {
         const timeRandom = Math.floor(Math.random() * 3)
         const timeArr = [3000, 4000, 5000, 6000]
         const time = timeArr[timeRandom]
-        console.log(time)
         this.userDtoTime = setInterval(() => {
             if (yy < numlength - 1) {
                 yy++;
@@ -81,8 +79,8 @@ export default {
                 random = "0" + random;
             }
 
-            const taocanArr = ['成功购买199元大米套餐', '成功购买365元大米套餐', '成功购买520元大米套餐']
-            const taocanNum = Math.floor(Math.random() * 3)
+            const taocanArr = ['羊酮体30kg（半只羊）', '羊酮体20kg（一只羊）', '羊酮体30kg（一只半羊）', '羊酮体40kg（两只羊）']
+            const taocanNum = Math.floor(Math.random() * 4)
 
             let randomText = `尾号${random}用户`
             arr.push({
@@ -90,50 +88,18 @@ export default {
                 getTime: "2020-05-10 19:08:31",
                 name: randomText,
                 content: taocanArr[taocanNum],
-                headimageurl: "https://guohuibucket.oss-cn-beijing.aliyuncs.com/07d398a1-9b2c-445b-aaa4-6dc3c2317cf8.png",
+                // headimageurl: "https://guohuibucket.oss-cn-beijing.aliyuncs.com/07d398a1-9b2c-445b-aaa4-6dc3c2317cf8.png",
                 userId: taocanNum
             });
         }
         return arr;
       },
-      barrageJump(num) {
-        let id = ''
-        switch(num) {
-          case 0:
-            id = '184'
-          break;
-          case 1:
-            id = '185'
-          break;
-          case 2:
-            id = '186'
-            break;
-            default:
-        }
-        alert(id)
-        mobileType((style) => {
-          switch(style) {
-            case 'ios':
-              console.log('MyJSInterface.intentGoodsInfo')
-              window.location.href = `intentGoodsInfo?id=${id}`
-            break;
-            case 'android':
-              console.log('MyJSInterface.intentGoodsInfo')
-              MyJSInterface.intentGoodsInfo(id)
-            break;
-            case 'wx':
-              wx.miniProgram.navigateTo({url: `/pages/goods/detail?id=${id}`})
-            break;
-            default:
-          }
-        })
-      }
     }
 };
 </script>
 
 
-<style scoped src="../../../assets/css/swiper.css"></style>
+<style scoped src="../../assets/css/swiper.css"></style>
 <style lang="stylus" scoped>
 .subtitles {
     height: .48rem;
@@ -192,16 +158,16 @@ export default {
     display: flex;
     align-items: center;
     height: .4rem
-    font-size .22rem
+    line-height .4rem;
+    font-size .2rem
     font-weight 400
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(0,0,0, .7);
     padding: 0 .24rem;
     border-top-right-radius: .24rem
     border-bottom-right-radius .24rem
     width: 100%;
     box-sizing: border-box;
-    color #000
-    opacity .4
+    color #fff
   }
   .bei-top-user-item-img {
     width .3rem;

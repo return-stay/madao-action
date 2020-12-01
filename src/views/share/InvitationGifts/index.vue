@@ -174,15 +174,6 @@ export default {
     // 立即邀请
     inviteNow() {
 
-      // appSetTokenAndShareCode('lllllll', 'lllljjjjjjj')
-      
-      // let params = {
-      //   md5Str: this.$route.query.md5Str
-      // }
-      // this.$http.fetchGet(inviteNow, params).then(res => {
-      //   console.log('inviteNow:', res.data)
-      //   this.inviteNowInfo = res.data
-      // })
       if(this.env === 'ios' || this.env === 'android') {
         this.showShare = true
       }

@@ -36,8 +36,7 @@ export default {
     }
   },
   mounted() {
-    // console.log(UnicomBaseApi)
-    document.title = '联通365活动'
+    document.title = '羊'
     this.getDetail()
   },
   components: {SwiperList},
