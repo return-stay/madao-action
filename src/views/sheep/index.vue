@@ -1,6 +1,6 @@
 <template>
   <div class="sheep-box">
-    <!-- <swiper-box :swiperList="swiperList" v-if="swiperList"></swiper-box> -->
+    <swiper-box :swiperList="swiperList" v-if="swiperList"></swiper-box>
     <div class="sheep-bg">
       <video class="sheep-video" v-if="isPlay" src="" id="sheepVideo">您的浏览器不支持 video 标签</video>
       <img v-if="!isPlay" src="~@/assets/img/sheep/bg.png" alt="">
@@ -55,6 +55,7 @@ import SheepItem from './sheepItem'
 import Rule from '../rule'
 import SwiperBox from "./swiper-box";
 import {getCookie} from '../../untils/util'
+import { ActivityDetail } from '../../api/url'
 export default {
   name: 'Sheep',
   components: { SheepItem, Rule, SwiperBox },
@@ -62,14 +63,41 @@ export default {
     return {
       isLeft: false,
       swiperList: [],
+      productDTOList: [],
       isPlay: false,
       env: 'ios',
     }
   },
   mounted() {
-    
+    this.getDetai()
   },
   methods: {
+    getDetai() {
+      // const token = this.$route.query.token || '3e99c379-a836-45fb-a579-a619b6b4e607'
+        const shareCode = this.$route.query.sharecode || getCookie('sharecode')
+        const code = this.$route.query.code || '1226'
+        let params = {
+          code,
+          share: shareCode,
+        }
+        const that = this
+      this.$http.fetchGet(ActivityDetail, params).then(res => {
+        console.log(res)
+
+        if(res.code === 100) {
+          const resdata = res.data;
+          let plist = resdata.productDTOList
+          for(let i = 0;i<plist.length;i++) {
+            plist[i].id = plist[i].productId
+            plist[i].title = plist[i].productTitle
+            plist[i].stateTitle = plist[i].serviceDesc
+          }
+          document.title = resdata.activityName
+          this.productDTOList = plist;
+          this.swiperList = resdata.userDTOList
+        } 
+      })
+    },
     goShare() {
       const token = this.$route.query.token
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
