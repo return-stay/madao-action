@@ -44,7 +44,9 @@ const getAuctionInfo = `${baseUrl}/auction/getPaipinById`,
   PrizeExchangeCode = madaoBaseUrl + '/prize/v1/exchangeCode', //兑换码 提交订单
   AddressDetail = madaoBaseUrl + '/address/v1/detail', //获取地址详情
   AddressList = madaoBaseUrl + '/address/v1/list', //获取地址列表
-  TradePay = madaoBaseUrl + '/trade/v1/pay' //支付接口
+  TradePay = madaoBaseUrl + '/trade/v1/pay', //支付接口
+  RecommendGood = madaoBaseUrl + "/index/v1/recommendGood", //好物推荐
+  demo = madaoBaseUrl +'/demo'
 
 export { 
   getAuctionInfo,
@@ -77,4 +79,6 @@ export {
   AddressDetail,
   AddressList,
   TradePay,
+  RecommendGood,
+  demo,
 }
