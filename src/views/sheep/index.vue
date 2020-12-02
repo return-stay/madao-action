@@ -101,11 +101,13 @@ export default {
     goShare() {
       const token = this.$route.query.token
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
+      const time = new Date().getTime()
       this.$router.push({
         path: '/invitation-gifts',
         query: {
           token: token,
           sharecode: shareCode,
+          time: time
         }
       })
     },

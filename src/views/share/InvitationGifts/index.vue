@@ -173,8 +173,8 @@ export default {
     },
     // 立即邀请
     inviteNow() {
-
-      if(this.env === 'ios' || this.env === 'android') {
+      const thatenv = this.env
+      if(thatenv === 'ios' || thatenv === 'android' || thatenv === 'wx') {
         this.showShare = true
       }
     },
