@@ -24,12 +24,10 @@
       <div class="invite-now">
         <img @click="inviteNow" class="invite-now-btn" src="../../../assets/img/invite-now.png" alt="">
       </div>
-      
     </div>
 
     <div class="howjoin-des">
       <img class="activity-des" src="../../../assets/img/activity-des.png" alt="">
-
       <div class="grid-box">
         <img class="grid-img" src="../../../assets/img/grid.png" alt="">
         <img class="grid-img" src="../../../assets/img/grid.png" alt="">
@@ -96,7 +94,7 @@
         </van-tab>
       </van-tabs>
     </div>
-    <van-loading v-if="isLoading" type="spinner" style="text-align: center;position: absolute;top: 50%; left: 50%;color: #fff;transform: translateX(-50%);" />
+    <van-loading v-if="isLoading" type="spinner" style="text-align: center;position: absolute;top: 50%; left: 50%;color: #fff;transform: translateX(-50%);z-index:10000;" />
     <van-action-sheet v-model="showShare">
       <div class="content">
         <div class="share-item" @click="shareWX">
@@ -110,6 +108,10 @@
       </div>
       <div @click="showShare = false" class="cancel">取消</div>
     </van-action-sheet>
+    <div class="yindao-box" v-if="showYinDao" >
+      <img class="yindao-img" src="../../../assets/img/sheep/yindao.png" alt="">
+      <div class="yindao-text">点击右上角按钮，分享给朋友</div>
+    </div>
   </div>
 </template>
 
@@ -122,7 +124,8 @@ export default {
     return {
       isLoading: false,
       showShare: false,
-      shareText: '在吗？推荐你看看国惠商城，优质好大米限时特价还有惊喜赠品~',
+      showYinDao: false,
+      shareText: '码道商城，为价值而生，优选好物，惊喜连连',
       active: 0,
       barrageList: [], // 头部弹幕
       rankingList: [], // 邀请排行榜
@@ -183,58 +186,85 @@ export default {
       const shareText = this.shareText
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
       const shareImage = 'https://guohuibucket.oss-cn-beijing.aliyuncs.com/ce1db0f9-f0e0-40ee-b5d1-90ec757627b5.png'
-      console.log(shareCode)
       if(shareCode) {
-        const miniPath = `/pages/invite/index?invitationCode=${shareCode}&accessUrl=https://www.gzwmall.com/activity523/#/newGiftBag`
-        if(this.env === 'ios') {
-          window.location.href = `share2WX?path=${miniPath}&imageUrl=${shareImage}&title=${shareText}`
-        } else {
-          let obj = {
-            path: miniPath,
-            title: shareText,
-            imageUrl: shareImage
-          }
-          MyJSInterface.share2Wx(JSON.stringify(obj))
+        const miniPath = `/pages/active/index?invitationCode=${shareCode}&accessUrl=https://shop.madao100.com/sheep/#/newGiftBag`
+        const thisenv = this.env
+        switch(thisenv) {
+          case 'ios':
+            window.location.href = `share2WX?path=${miniPath}&imageUrl=${shareImage}&title=${shareText}`
+            break;
+          case 'android':
+            let obj = {
+              path: miniPath,
+              title: shareText,
+              imageUrl: shareImage
+            }
+            MyJSInterface.share2Wx(JSON.stringify(obj))
+            break;
+          case 'wx':
+            wx.miniProgram.postMessage({
+              data: {
+                path: miniPath,
+                title: shareText,
+                imageUrl: shareImage,
+              }
+            })
+            this.showYinDao = true
+            break;
+          default:
         }
         this.showShare = false
       }else {
-        if(this.env === 'ios') {
-          window.location.href = `login?channel=520`
-        } else {
-          MyJSInterface.userLogin('520')
-        }
+        this.goLogin()
       }
     },
     // 朋友圈
     shareFriends() {
       const routeQuery = this.$route.query
-      console.log(routeQuery)
       const token = routeQuery.token || getCookie('token')
       if(token) {
         let params = {
-          code: 'invitation',
+          code: '1226',
           token: routeQuery.token
         }
         this.isLoading = true
         this.$http.fetchGet(ActivityShare, params).then(res => {
-          console.log('res:', res.data)
           const imgUrl = res.data
-          if(this.env === 'ios') {
-            window.location.href = `share2Pyq?imageUrl=${imgUrl}`
-          } else {
-            MyJSInterface.share2Pyq(imgUrl)
+          const thisenv = this.env
+          switch(thisenv) {
+            case 'ios':
+              window.location.href = `share2Pyq?imageUrl=${imgUrl}`
+              break;
+            case 'android':
+              MyJSInterface.share2Pyq(imgUrl)
+              break;
+            case 'wx':
+              wx.miniProgram.navigatorTo({
+                url: `/pages/activeShare/index?imageUrl=${imgUrl}`
+              })
+              break;
+            default:
           }
           this.showShare = false
           this.isLoading = false
         })
       }else {
-        if(this.env === 'ios') {
-          window.location.href = `login?channel=520`
-        } else {
-          MyJSInterface.userLogin('520')
-        }
-        this.showShare = false
+        this.goLogin()
       }
+    },
+    // 去往登录页
+    goLogin () {
+      const thisenv = this.env
+      switch(thisenv) {
+        case 'ios':
+          window.location.href = `login?channel=1226`
+          break;
+        case 'android':
+          MyJSInterface.userLogin('1226')
+          break;
+        default:
+      }
+      this.showShare = false
     },
     // 查看规则
     goRule() {
@@ -643,4 +673,23 @@ export default {
   font-size .32rem
   color #666666
   border-top .2rem solid #F9F9F9
+
+.yindao-box 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.7);
+  text-align center
+  .yindao-img
+    margin-top: 1rem
+    width: 60%
+  .yindao-text
+    text-align center
+    color: #fff
+    font-size .36rem
+    margin-top: .2rem
+  
 </style>

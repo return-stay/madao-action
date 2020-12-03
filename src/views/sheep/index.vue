@@ -169,8 +169,8 @@ export default {
   position: fixed;
   right: 0.2rem;
   top: 67%;
-  width: 2.86rem;
-  height: 2.38rem;
+  width: 2.25rem;
+  /* height: 2.38rem; */
   z-index: 1000;
 }
 .ah-cont {
