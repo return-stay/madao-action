@@ -108,7 +108,7 @@
       </div>
       <div @click="showShare = false" class="cancel">取消</div>
     </van-action-sheet>
-    <div class="yindao-box" v-if="showYinDao" >
+    <div class="yindao-box" v-if="showYinDao" @click="showYinDao = false" >
       <img class="yindao-img" src="../../../assets/img/sheep/yindao.png" alt="">
       <div class="yindao-text">点击右上角按钮，分享给朋友</div>
     </div>
@@ -183,6 +183,7 @@ export default {
     },
     // 微信
     shareWX() {
+      this.isLoading = false
       const shareText = this.shareText
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
       const shareImage = 'https://guohuibucket.oss-cn-beijing.aliyuncs.com/ce1db0f9-f0e0-40ee-b5d1-90ec757627b5.png'
@@ -239,8 +240,8 @@ export default {
               MyJSInterface.share2Pyq(imgUrl)
               break;
             case 'wx':
-              wx.miniProgram.navigatorTo({
-                url: `/pages/activeShare/index?imageUrl=${imgUrl}`
+              wx.miniProgram.navigateTo({
+                url: `/pages/activeShare/index?imgUrl=${imgUrl}`
               })
               break;
             default:
