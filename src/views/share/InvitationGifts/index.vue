@@ -186,7 +186,7 @@ export default {
       this.isLoading = false
       const shareText = this.shareText
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
-      const shareImage = 'https://guohuibucket.oss-cn-beijing.aliyuncs.com/ce1db0f9-f0e0-40ee-b5d1-90ec757627b5.png'
+      const shareImage = 'https://madaoshop.oss-cn-beijing.aliyuncs.com/8021a945-c9ed-44b0-add8-d4e05abf59e6.png'
       if(shareCode) {
         const miniPath = `/pages/active/index?invitationCode=${shareCode}&accessUrl=https://shop.madao100.com/sheep/#/newGiftBag`
         const thisenv = this.env
@@ -550,7 +550,6 @@ export default {
     padding .6rem 0 1.5rem
     .empty-img
       width 1.82rem
-      height 1.54rem
     .empty-text
       font-size .28rem
       color #666666
