@@ -1,18 +1,17 @@
 <template>
   <div class="invation-page">
     <div class="top">
+      <img class="bg-calss" src="../../../assets/img/invation-bg.png" alt="">
       <div class="text">
         <div v-if="activityCheckJoinActCode == 1">
-          <p>赶快领取新人大礼包吧～</p>
+          <p>快去领取您的转服福利吧～</p>
         </div>
         <div v-else-if="activityCheckJoinActCode == 3">
-          <p>恭喜你领券成功，</p>
-          <p>快去和你的好物不期而遇吧～</p>
+          <p>恭喜你领券成功，快去和你的好物不期而遇吧～</p>
         </div>
-        <p v-else-if="activityCheckJoinActCode == 2">新人礼券包仅限新用户领取～</p>
+        <p v-else-if="activityCheckJoinActCode == 2">此福利仅限新用户领取～</p>
         <div v-else-if="activityCheckJoinActCode == 4">
-          <p>不能邀请自己哦～</p>
-          <p>快去邀请好友下单吧</p>
+          <p>不能邀请自己哦～       快去邀请好友下单吧</p>
         </div>
       </div>
       <div class="go-btn">
@@ -22,49 +21,26 @@
 
     </div>
     <div class="recommend-annual">
-      <div class="recommend-title">
+      <!-- <div class="recommend-title">
         <img class="recommend-title_img" src="../../../assets/img/aunal-title.png" alt="">
-      </div>
+      </div> -->
       <div class="auctions-scene_item" @click="jumpAuction()">
         <!-- <good-item> </good-item> -->
-        <good-item :goodsItem="{
-          id: '184',
-          title: '199元大米套餐',
-          subTitle: '适合两口之家',
-          stateTitle: '每月邮寄5斤大米，邮寄12个月，共60斤',
-        }" >
-          <img class="a-item-cont-img" src="./../../../assets/img/199_goods.jpg" alt="">
-        </good-item>
-
-        <good-item :goodsItem="{
-          id: '185',
-          title: '365元大米套餐',
-          subTitle: '三口之家必选',
-          stateTitle: '每月邮寄10斤大米，邮寄12个月，共120斤',
-        }" >
-          <img class="a-item-cont-img" src="./../../../assets/img/365_goods.jpg" alt="">
-        </good-item>
-        <good-item :goodsItem="{
-          id: '186',
-          title: '520元大米套餐',
-          subTitle: '适合温馨大家庭',
-          stateTitle: '每月邮寄15斤大米，邮寄12个月，共180斤',
-        }" >
-          <img class="a-item-cont-img" src="./../../../assets/img/520_goods.jpg" alt="">
-        </good-item>
+        <div class="sheep-item">
+      <sheep-item :isLeft="true" />
+        </div>
+        <div class="sheep-item">
+          <sheep-item />
+        </div>
+        <div class="sheep-item">
+          <sheep-item :isLeft="true" />
+        </div>
+        <div class="sheep-item">
+          <sheep-item />
+        </div>
       </div>
     </div>
-    <!-- <van-popup v-model="showCoupon" class="coupon-pop">
-      <p class="coupon-title">恭喜获得以下优惠券</p>
-      <div class="coupon-wrapper">
-        <ul class="coupon-list">
-          <li class="coupon-item"></li>
-        </ul>
-      </div>
-      <img class="close-coupon" src="../../../assets/img/close-coupon.png" alt="">
-    </van-popup> -->
     <Dialog v-show="showCoupon" @hide="showCoupon = false" class="coupon-dialog">
-    <!-- <Dialog class="coupon-dialog"> -->
       <div class="coupon-dialog_wrapper">
         <img class="title" src="../../../assets/img/coupon-title.png" alt="">
         <div class="coupon-item" v-for="item in couponArray" :key="item.id">
@@ -86,15 +62,15 @@
 </template>
 
 <script>
-import GoodItem from "../ActivityHome/good-item";
 import Dialog from '@/components/Dialog'
 import { getStatusAndTime, mobileType } from '@/untils/util'
 import {ActivityJoinActAndCoupon, ActivityCheckJoinAct } from '../../../api/url'
+import SheepItem from '../../sheep/sheepItem'
 export default {
   data() {
     return {
       showCoupon: false,
-      activityCheckJoinActCode: 1,//是否邀请过
+      activityCheckJoinActCode: 3,//是否邀请过
       recommendList: [],
       couponArray: [
         {
@@ -131,7 +107,7 @@ export default {
   },
   components: {
     Dialog,
-    GoodItem,
+    SheepItem,
   },
   
   methods: {
@@ -204,6 +180,10 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.sheep-item {
+  width: 6.4rem;
+  margin: 0 auto 0.7rem;
+}
 .previewing {
   color #fff !important
 }
@@ -286,9 +266,11 @@ export default {
     width 100%
     height 9.02rem
     display block
-    background url('../../../assets/img/invation-bg.png') no-repeat center
+    // background url('../../../assets/img/invation-bg.png') no-repeat center
     background-size 100% 9.02rem
     position relative
+    .bg-calss
+      width: 100%
     .text
       position absolute
       top 1.96rem 
@@ -296,9 +278,9 @@ export default {
       width 100%
       text-align center
       color #FFFFFF
-      font-size .36rem
+      font-size 0.2rem
       font-weight bold
-      line-height .5rem
+      line-height 0.4rem
     .go-btn
       position absolute 
       top 6.67rem
@@ -312,7 +294,7 @@ export default {
         display block
         animation scaleDrew 1.5s ease-in-out infinite
   .recommend-annual
-    background #D13028
+    background #FFCBA6
     margin-top -.04rem
     position relative
     .recommend-title

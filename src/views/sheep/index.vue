@@ -8,7 +8,7 @@
     </div>
 
     <div class="a-fixed" @click="goShare" v-if="env === 'ios' || env==='android'">
-      <img src="~@/assets/img/share_icon.png" alt />
+      <img src="~@/assets/img/share_icon.gif" alt />
     </div> 
 
     <div class="sheep-link">
@@ -169,7 +169,7 @@ export default {
   position: fixed;
   right: 0.2rem;
   top: 67%;
-  width: 2.25rem;
+  width: 1.4rem;
   /* height: 2.38rem; */
   z-index: 1000;
 }
