@@ -232,6 +232,7 @@ export default {
         this.$http.fetchGet(ActivityShare, params).then(res => {
           const imgUrl = res.data
           const thisenv = this.env
+          console.log(imgUrl)
           switch(thisenv) {
             case 'ios':
               window.location.href = `share2Pyq?imageUrl=${imgUrl}`

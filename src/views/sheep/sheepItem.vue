@@ -240,7 +240,7 @@ export default {
   flex-shrink: 0;
   width: 4.02rem;
   height: 3.9rem;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .si-bottom {

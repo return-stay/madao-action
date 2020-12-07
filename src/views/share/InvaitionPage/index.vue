@@ -264,7 +264,7 @@ export default {
 .invation-page
   .top
     width 100%
-    height 9.02rem
+    // height 9.02rem
     display block
     // background url('../../../assets/img/invation-bg.png') no-repeat center
     background-size 100% 9.02rem
