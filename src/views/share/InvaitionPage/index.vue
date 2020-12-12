@@ -273,7 +273,7 @@ export default {
       width: 100%
     .text
       position absolute
-      top 1.96rem 
+      top 2.3rem
       left 0
       width 100%
       text-align center
@@ -295,7 +295,7 @@ export default {
         animation scaleDrew 1.5s ease-in-out infinite
   .recommend-annual
     background #FFCBA6
-    margin-top -.04rem
+    margin-top -0.2rem
     position relative
     .recommend-title
       width 100%
@@ -310,7 +310,7 @@ export default {
         margin 0 auto
     .auctions-scene_item
       padding-bottom .2rem
-      box-shadow:0px 0px .04rem 0px rgba(102,102,102,0.6)
+      // box-shadow:0px 0px .04rem 0px rgba(102,102,102,0.6)
       &:first-child
         margin-top .1rem
       &:last-child
