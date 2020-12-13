@@ -25,17 +25,8 @@
       <img src="~@/assets/img/sheep/header_1.png" alt="">
     </div>
 
-    <div class="sheep-item">
-      <sheep-item :isLeft="true" />
-    </div>
-    <div class="sheep-item">
-      <sheep-item />
-    </div>
-    <div class="sheep-item">
-      <sheep-item :isLeft="true" />
-    </div>
-    <div class="sheep-item">
-      <sheep-item />
+    <div class="sheep-item" v-for="(item, index) in productList" :key="item.productId">
+      <sheep-item :isLeft="!(index%2)" :goodsItem="item" />
     </div>
 
     <div class="sheep-banner">
@@ -56,6 +47,9 @@ import Rule from '../rule'
 import SwiperBox from "./swiper-box";
 import {getCookie} from '../../untils/util'
 import { ActivityDetail } from '../../api/url'
+import one from '../../assets/img/sheep/goods_1.png'
+import two from '../../assets/img/sheep/goods_2.png'
+import three from '../../assets/img/sheep/goods_3.png'
 export default {
   name: 'Sheep',
   components: { SheepItem, Rule, SwiperBox },
@@ -66,6 +60,44 @@ export default {
       productDTOList: [],
       isPlay: false,
       env: 'ios',
+      productList: [
+        {
+          id: 1334,
+          productCover: one,
+          title: '半只羊全装',
+          header: '羊肉坐飞机',
+          headersub: '只为抢“鲜”机',
+          productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊腩肉+羊蝎子+羊前腿+羊后腿+羊尾骨',
+          productPrice: '1400',
+          activityPrice: '1298',
+          unit: '22斤装',
+          imgStyle: 'width: 100%;'
+        },
+        {
+          id: 1335,
+          productCover: two,
+          title: '半只羊实惠装',
+          header: '送礼有面子',
+          headersub: '资深吃货推荐',
+          productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊蝎子+羊前腿 +羊尾巴骨',
+          productPrice: '1200',
+          activityPrice: '960',
+          unit: '16斤装',
+          imgStyle: 'width: 90%;'
+        },
+        {
+          id: 1336,
+          productCover: three,
+          title: '半只羊精品装',
+          header: '维生素、蛋白质含量高',
+          headersub: '刚察好藏羊',
+          productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
+          productPrice: '520',
+          activityPrice: '488',
+          unit: '8斤装',
+          imgStyle: 'width: 95%;'
+        },
+      ]
     }
   },
   mounted() {

@@ -1,60 +1,58 @@
 <template>
   <div class="si-box">
     <div class="si-top" v-if='isLeft'>
-      <div class="si-title">让你吃到原汁原味的刚察藏羊</div>
+      <div class="si-title">{{goodsItem.title}}</div>
       <div class="si-header">
-        <p>羊肉坐飞机</p>
-        <p>只为抢“鲜”机</p>
+        <p>{{goodsItem.header}}</p>
+        <p>{{goodsItem.headersub}}</p>
         <p class="si-header-br"></p>
       </div>
       <div class="si-goods-box">
         <div class="si-goods-left">
           <div class="si-name">
-            <p>羊酮体30kg（半只羊）</p>
-            <p>献给您的放心肉</p>
+            <p>{{goodsItem.productName}}</p>
           </div>
           <div class="si-price">
-            <s>市场价：¥1299</s>
+            <s>市场价：¥{{goodsItem.productPrice}}</s>
           </div>
           <div class="si-new-price">
             <p class="si-new-price-text">鲜肉价：</p>
             <div class="si-new-price-num">
               <p class="si-new-price-num-icon">￥</p>
-              <p class="si-new-price-num-value">1199</p>
-              <p class="si-new-price-num-unit">/10kg</p>
+              <p class="si-new-price-num-value">{{goodsItem.activityPrice}}</p>
+              <p class="si-new-price-num-unit">/{{goodsItem.unit}}</p>
             </div>
           </div>
         </div>
         <div class="si-goods-right">
-          <img src="" alt="" :style="imgStyle">
+          <img :src="goodsItem.productCover" alt="" :style="goodsItem.imgStyle">
         </div>
       </div>
     </div>
     <div class="si-top si-top-left" v-else>
-      <div class="si-title">让你吃到原汁原味的刚察藏羊</div>
+      <div class="si-title">{{goodsItem.title}}</div>
       <div class="si-header">
-        <p>羊肉坐飞机</p>
-        <p>只为抢“鲜”机</p>
+        <p>{{goodsItem.header}}</p>
+        <p>{{goodsItem.headersub}}</p>
         <p class="si-header-br si-header-br-right"></p>
       </div>
       <div class="si-goods-box si-goods-box-left">
         <div class="si-goods-right">
-          <img src="" alt="" :style="imgStyle">
+          <img :src="goodsItem.productCover" alt="" :style="goodsItem.imgStyle">
         </div>
         <div class="si-goods-left si-goods-left-r">
           <div class="si-name">
-            <p>羊酮体30kg（半只羊）</p>
-            <p>献给您的放心肉</p>
+            <p>{{goodsItem.productName}}</p>
           </div>
           <div class="si-price">
-            <s>市场价：¥1299</s>
+            <s>市场价：¥{{goodsItem.productPrice}}</s>
           </div>
           <div class="si-new-price">
             <p class="si-new-price-text">鲜肉价：</p>
             <div class="si-new-price-num">
               <span>￥</span>
-              <span class="si-new-price-num-value">1199</span>
-              <span>/10kg</span>
+              <span class="si-new-price-num-value">{{goodsItem.activityPrice}}</span>
+              <span>/{{goodsItem.unit}}</span>
             </div>
           </div>
         </div>
@@ -186,14 +184,15 @@ export default {
   text-align: left;
 }
 .si-goods-left-r {
-  margin-left: 0.24rem;
+  margin-left: 0.1rem;
 }
 .si-name {
   padding-top: 0.36rem;
+  width: 118%;
 }
 .si-name>p {
-  height: 0.23rem;
-  line-height: 0.23rem;
+  height: 0.32rem;
+  line-height: 0.32rem;
   margin-bottom: 0.08rem;
 }
 
@@ -240,7 +239,10 @@ export default {
   flex-shrink: 0;
   width: 4.02rem;
   height: 3.9rem;
-  /* background-color: red; */
+  margin-top: 0.28rem;
+}
+.si-goods-right>img {
+  width: 95%
 }
 
 .si-bottom {

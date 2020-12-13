@@ -10,7 +10,7 @@
             <div class="rule-item-right" style="white-space: pre-line;" v-html="item"></div>
         </div>
     </div>
-    <!-- <div class="rule-bottom">本活动最终解释权归码道商城所有</div> -->
+    <div class="rule-bottom">活动最终解释权归码道商城所有。</div>
   </div>
 </template>
 
@@ -21,11 +21,9 @@ export default {
     ruleTextArr: {
       type: Array,
       default: () => [
-        '活动时间：2020年12月1日 至 1月1日',
-        '活动期间每个用户每个套餐限购一份，由于套餐中羊肉属于定制商品，用户下单后需工厂现生产加工和包装，所以有一定的工期，商城会根据用户下单时间在下单30日后发货，请用户下单后耐心等待；',
-        '活动期间，用户如果违反诚实信用原则或出现违规行为（如作弊下单等），平台有权追究其法律责任；',
-        '同一登录账号、同一手机号、同一终端设备号、同一支付账户、同一IP或其它合理显示为同一用户的情形，均视为同一用户；',
-        '活动中若遇问题，请咨询客服热线 400-636-2019;',
+        '活动时间：2020年12月9日-2021年2月10日',
+        '活动期间购买的羊肉需要现场屠宰，所以有一定的工期，屠宰完成后我们将及时装箱并发货，请您耐心等待。',
+        '活动期间遇到任何问题，请咨询客服热线xxx-xxxx-xxxx',
       ]
     }
   }
@@ -100,6 +98,6 @@ export default {
   font-size: 0.24rem;
   color: #666;
   text-align: center;
-  margin-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 </style>
