@@ -99,7 +99,7 @@ export default {
       env: 'ios',
       productList: [
         {
-          id: 1334,
+          id: 1336,
           productCover: one,
           title: '半只羊全装',
           header: '羊肉坐飞机',
@@ -123,7 +123,7 @@ export default {
           imgStyle: 'width: 90%;'
         },
         {
-          id: 1336,
+          id: 1334,
           productCover: three,
           title: '半只羊精品装',
           header: '维生素、蛋白质含量高',

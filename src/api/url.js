@@ -1,7 +1,7 @@
 let baseUrlApi = '', madaoBaseUrl = '';
 if (process.env.NODE_ENV === "development") {
   baseUrlApi = 'http://39.97.231.232:9809'
-  madaoBaseUrl = 'http://39.97.231.232:9809' //码道接口
+  madaoBaseUrl = 'https://shop.madao100.com/api' //码道接口
 } else {
   baseUrlApi = 'https://shop.madao100.com/api'
   madaoBaseUrl = 'https://shop.madao100.com/api'

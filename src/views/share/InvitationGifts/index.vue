@@ -28,7 +28,7 @@
 
     <div class="howjoin-des">
       <div class="activity-des" >
-        <rule />
+        <rule :ruleTextArr="ruleTextArr" />
       </div>
       <div class="grid-box">
         <img class="grid-img" src="../../../assets/img/grid.png" alt="">
@@ -137,7 +137,12 @@ export default {
       ticketInviteFriendList: [], // 我的邀请记录
       ticketInvite: {}, // 邀请统计信息
       env: '',
-      inviteNowInfo: {}
+      inviteNowInfo: {},
+      ruleTextArr: [
+        '只有通过本页面分享出去给好友才能活动奖励（好友必须是平台新用户，双方才能获得相应奖励）',
+        '好友通过您的链接注册登录（好友将获得新人200元组合券）',
+        '好友在30天内成功下单，签收7天无退款后。您将根据好友购买套餐获得相应的奖励。<br>购买青海藏羊8斤装，您可获得16元现金奖励。<br>购买青海藏羊16斤装，您可获得32元现金奖励。<br>购买青海藏羊22斤装，您可获得44元现金奖励。<br>(如果好友购买多个套餐，只奖励首单最贵套餐对应金额）',
+      ],
     }
   },
   methods: {
@@ -237,7 +242,6 @@ export default {
         this.$http.fetchGet(ActivityShare, params).then(res => {
           const imgUrl = res.data
           const thisenv = this.env
-          console.log(imgUrl)
           switch(thisenv) {
             case 'ios':
               window.location.href = `share2Pyq?imageUrl=${imgUrl}`
@@ -268,6 +272,11 @@ export default {
           break;
         case 'android':
           MyJSInterface.userLogin('1226')
+          break;
+        case 'wx':
+          wx.miniProgram.navigateTo({
+            url: `/pages/login/index?channel=1226`
+          })
           break;
         default:
       }
@@ -687,7 +696,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10000;
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,.7);

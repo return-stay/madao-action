@@ -2,9 +2,9 @@
   <div class="sheep-box">
     <swiper-box :swiperList="swiperList" v-if="swiperList"></swiper-box>
     <div class="sheep-bg">
-      <video class="sheep-video" v-if="isPlay" src="" id="sheepVideo">您的浏览器不支持 video 标签</video>
+      <!-- <video class="sheep-video" v-if="isPlay" src="" id="sheepVideo">您的浏览器不支持 video 标签</video> -->
       <img v-if="!isPlay" src="~@/assets/img/sheep/bg.png" alt="">
-      <img v-if="!isPlay" class="sheep-play" src="~@/assets/img/sheep/play.png" alt="" @click="play">
+      <!-- <img v-if="!isPlay" class="sheep-play" src="~@/assets/img/sheep/play.png" alt="" @click="play"> -->
     </div>
 
     <div class="a-fixed" @click="goShare" v-if="env === 'ios' || env==='android'">
@@ -62,7 +62,7 @@ export default {
       env: 'ios',
       productList: [
         {
-          id: 1334,
+          id: 1336,
           productCover: one,
           title: '半只羊全装',
           header: '羊肉坐飞机',
@@ -86,7 +86,7 @@ export default {
           imgStyle: 'width: 90%;'
         },
         {
-          id: 1336,
+          id: 1334,
           productCover: three,
           title: '半只羊精品装',
           header: '维生素、蛋白质含量高',
