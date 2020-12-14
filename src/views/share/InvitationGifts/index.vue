@@ -275,7 +275,7 @@ export default {
           break;
         case 'wx':
           wx.miniProgram.navigateTo({
-            url: `/pages/login/index?channel=1226`
+            url: `/pages/login/selectLogin?channel=1226`
           })
           break;
         default:
