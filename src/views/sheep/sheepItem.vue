@@ -1,6 +1,6 @@
 <template>
   <div class="si-box">
-    <div class="si-top" v-if='isLeft'>
+    <div class="si-top" v-if='isLeft' @click="goGoodsInfo">
       <div class="si-title">{{goodsItem.title}}</div>
       <div class="si-header">
         <p>{{goodsItem.header}}</p>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="si-top si-top-left" v-else>
+    <div class="si-top si-top-left" v-else @click="goGoodsInfo">
       <div class="si-title">{{goodsItem.title}}</div>
       <div class="si-header">
         <p>{{goodsItem.header}}</p>

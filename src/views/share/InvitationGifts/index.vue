@@ -27,7 +27,9 @@
     </div>
 
     <div class="howjoin-des">
-      <img class="activity-des" src="../../../assets/img/activity-des.png" alt="">
+      <div class="activity-des" >
+        <rule />
+      </div>
       <div class="grid-box">
         <img class="grid-img" src="../../../assets/img/grid.png" alt="">
         <img class="grid-img" src="../../../assets/img/grid.png" alt="">
@@ -119,7 +121,10 @@
 import Swiper from "swiper"
 import {formatDate,getCookie} from '../../../untils/util'
 import { ActivityInvitationRank, ActivityInvitationForMe, ActivityShare, } from '../../../api/url'
+import Rule from '../../rule'
 export default {
+  name: 'InvitationGifts',
+  components: {Rule},
   data () {
     return {
       isLoading: false,
@@ -466,8 +471,11 @@ export default {
       height .44rem
     .activity-des
       width 6.7rem
-      height 6.34rem
+      padding 0.32rem
       margin-top .2rem
+      background-color #fff
+      box-sizing: border-box;
+      border-radius 0.2rem;
 .grid-box
   position absolute
   bottom -.5rem
