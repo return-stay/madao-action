@@ -41,7 +41,7 @@
           <img :src="goodsItem.productCover" alt="" :style="goodsItem.imgStyle">
         </div>
         <div class="si-goods-left si-goods-left-r">
-          <div class="si-name">
+          <div class="si-name si-name-left">
             <p>{{goodsItem.productName}}</p>
           </div>
           <div class="si-price">
@@ -50,9 +50,9 @@
           <div class="si-new-price">
             <p class="si-new-price-text">鲜肉价：</p>
             <div class="si-new-price-num">
-              <span>￥</span>
-              <span class="si-new-price-num-value">{{goodsItem.activityPrice}}</span>
-              <span>/{{goodsItem.unit}}</span>
+              <p>￥</p>
+              <p class="si-new-price-num-value">{{goodsItem.activityPrice}}</p>
+              <p>/{{goodsItem.unit}}</p>
             </div>
           </div>
         </div>
@@ -189,6 +189,9 @@ export default {
 .si-name {
   padding-top: 0.36rem;
   width: 118%;
+}
+.si-name-left {
+  margin-left: -0.3rem;
 }
 .si-name>p {
   height: 0.32rem;

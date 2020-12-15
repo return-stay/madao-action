@@ -62,16 +62,16 @@ export default {
       env: 'ios',
       productList: [
         {
-          id: 1336,
-          productCover: one,
-          title: '半只羊全装',
-          header: '羊肉坐飞机',
-          headersub: '只为抢“鲜”机',
-          productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊腩肉+羊蝎子+羊前腿+羊后腿+羊尾骨',
-          productPrice: '1400',
-          activityPrice: '1298',
-          unit: '22斤装',
-          imgStyle: 'width: 100%;'
+          id: 1334,
+          productCover: three,
+          title: '半只羊精品装',
+          header: '维生素、蛋白质含量高',
+          headersub: '刚察好藏羊',
+          productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
+          productPrice: '520',
+          activityPrice: '488',
+          unit: '8斤装',
+          imgStyle: 'width: 95%;'
         },
         {
           id: 1335,
@@ -86,16 +86,16 @@ export default {
           imgStyle: 'width: 90%;'
         },
         {
-          id: 1334,
-          productCover: three,
-          title: '半只羊精品装',
-          header: '维生素、蛋白质含量高',
-          headersub: '刚察好藏羊',
-          productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
-          productPrice: '520',
-          activityPrice: '488',
-          unit: '8斤装',
-          imgStyle: 'width: 95%;'
+          id: 1336,
+          productCover: one,
+          title: '半只羊全装',
+          header: '羊肉坐飞机',
+          headersub: '只为抢“鲜”机',
+          productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊腩肉+羊蝎子+羊前腿+羊后腿+羊尾骨',
+          productPrice: '1400',
+          activityPrice: '1298',
+          unit: '22斤装',
+          imgStyle: 'width: 100%;'
         },
       ]
     }

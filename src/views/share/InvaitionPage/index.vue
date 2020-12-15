@@ -15,8 +15,10 @@
         </div>
       </div>
       <div class="go-btn">
-        <img v-if="activityCheckJoinActCode == 1" @click="getCoupon" class="go-btn_img" src="../../../assets/img/get-now.png" alt="">
-        <img v-else  @click="goHome" class="go-btn_img" src="../../../assets/img/gosee-btn.png" alt="">
+        <!-- <img v-if="activityCheckJoinActCode == 1" @click="getCoupon" class="go-btn_img" src="../../../assets/img/get-now.png" alt="">
+        <img v-else  @click="goHome" class="go-btn_img" src="../../../assets/img/gosee-btn.png" alt=""> -->
+        <div  v-if="activityCheckJoinActCode == 1" @click="getCoupon">立即领取</div>
+        <div  v-else @click="goHome">去看看</div>
       </div>
 
     </div>
@@ -99,16 +101,16 @@ export default {
       env: 'ios',
       productList: [
         {
-          id: 1336,
-          productCover: one,
-          title: '半只羊全装',
-          header: '羊肉坐飞机',
-          headersub: '只为抢“鲜”机',
-          productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊腩肉+羊蝎子+羊前腿+羊后腿+羊尾骨',
-          productPrice: '1400',
-          activityPrice: '1298',
-          unit: '22斤装',
-          imgStyle: 'width: 100%;'
+          id: 1334,
+          productCover: three,
+          title: '半只羊精品装',
+          header: '维生素、蛋白质含量高',
+          headersub: '刚察好藏羊',
+          productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
+          productPrice: '520',
+          activityPrice: '488',
+          unit: '8斤装',
+          imgStyle: 'width: 95%;'
         },
         {
           id: 1335,
@@ -123,16 +125,16 @@ export default {
           imgStyle: 'width: 90%;'
         },
         {
-          id: 1334,
-          productCover: three,
-          title: '半只羊精品装',
-          header: '维生素、蛋白质含量高',
-          headersub: '刚察好藏羊',
-          productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
-          productPrice: '520',
-          activityPrice: '488',
-          unit: '8斤装',
-          imgStyle: 'width: 95%;'
+          id: 1336,
+          productCover: one,
+          title: '半只羊全装',
+          header: '羊肉坐飞机',
+          headersub: '只为抢“鲜”机',
+          productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊腩肉+羊蝎子+羊前腿+羊后腿+羊尾骨',
+          productPrice: '1400',
+          activityPrice: '1298',
+          unit: '22斤装',
+          imgStyle: 'width: 100%;'
         },
       ]
     }
@@ -315,11 +317,16 @@ export default {
       line-height 0.4rem
     .go-btn
       position absolute 
-      top 6.67rem
+      top 6.84rem
       left 50%
       transform translateX(-50%)
-      width 6.8rem
-      height 1.16rem
+      width 3rem
+      height 0.8rem
+      color: #fff
+      background-color #f5bb41
+      line-height 0.8rem;
+      text-align  center
+      border-radius 0.4rem;
       .go-btn_img
         width 100%
         height 100%
