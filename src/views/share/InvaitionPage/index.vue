@@ -15,8 +15,6 @@
         </div>
       </div>
       <div class="go-btn">
-        <!-- <img v-if="activityCheckJoinActCode == 1" @click="getCoupon" class="go-btn_img" src="../../../assets/img/get-now.png" alt="">
-        <img v-else  @click="goHome" class="go-btn_img" src="../../../assets/img/gosee-btn.png" alt=""> -->
         <div  v-if="activityCheckJoinActCode == 1" @click="getCoupon">立即领取</div>
         <div  v-else @click="goHome">去看看</div>
       </div>
@@ -105,7 +103,7 @@ export default {
           productCover: three,
           title: '半只羊精品装',
           header: '维生素、蛋白质含量高',
-          headersub: '刚察好藏羊',
+          headersub: '青海好藏羊',
           productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
           productPrice: '520',
           activityPrice: '488',
@@ -147,10 +145,19 @@ export default {
   methods: {
     // 跳转小程序首页
     goHome() {
-      console.log('env:', this.env)
-      if(this.env === 'wx') {
-        wx.miniProgram.switchTab({ url: '/pages/home/home' })
-      }
+      // console.log('env:', this.env)
+      // if(this.env === 'wx') {
+      //   wx.miniProgram.switchTab({ url: '/pages/home/home' })
+      // }
+      const token = this.$route.query.token || getCookie('token')
+      const shareCode = this.$route.query.sharecode || getCookie('sharecode')
+      this.$router.push({
+        path: '/sheep',
+        query: {
+          token: token,
+          sharecode: shareCode,
+        }
+      })
     },
     // 点击拍场跳转到小程序
     jumpAuction(url) {
@@ -169,7 +176,7 @@ export default {
           this.getActivityCheckJoinAct()
         }else if (res.code == 105 || res.code == 106) {
           // wx.miniProgram.navigateTo({ url: '/pages/register/index' })
-          let url = '/pages/login/index?invitationCode=' + shareCode + '&channel=520'
+          let url = '/pages/login/index?invitationCode=' + shareCode + '&channel=1226'
           wx.miniProgram.navigateTo({ url })
         }
       })
@@ -352,7 +359,7 @@ export default {
       padding-bottom .2rem
       // box-shadow:0px 0px .04rem 0px rgba(102,102,102,0.6)
       &:first-child
-        margin-top .1rem
+        margin-top 0rem
       &:last-child
         margin-bottom 0
       .finish

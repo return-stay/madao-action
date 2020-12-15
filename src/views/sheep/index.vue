@@ -16,7 +16,7 @@
         <img src="~@/assets/img/sheep/sheep.png" alt="">
       </div>
       <div class="sheep-link-text">
-        <p class="sheep-link-text-header">【刚察藏羊 六亩一只羊】</p>
+        <p class="sheep-link-text-header">【青藏高原 耐寒藏羊】</p>
         <p>地标产品360万亩有机草场，青海湖畔散养，吃虫草等中草药，饮山泉无膻味。</p>
       </div>
     </div>
@@ -66,7 +66,7 @@ export default {
           productCover: three,
           title: '半只羊精品装',
           header: '维生素、蛋白质含量高',
-          headersub: '刚察好藏羊',
+          headersub: '青海好藏羊',
           productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
           productPrice: '520',
           activityPrice: '488',
