@@ -68,8 +68,8 @@ export default {
           header: '维生素、蛋白质含量高',
           headersub: '青海好藏羊',
           productName: '羊排+羊腩肉+羊腿肉（带骨） 肥瘦相间 脂肪均匀',
-          productPrice: '520',
-          activityPrice: '488',
+          productPrice: '560',
+          activityPrice: '530',
           unit: '8斤装',
           imgStyle: 'width: 95%;'
         },
@@ -80,8 +80,8 @@ export default {
           header: '送礼有面子',
           headersub: '资深吃货推荐',
           productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊蝎子+羊前腿 +羊尾巴骨',
-          productPrice: '1200',
-          activityPrice: '960',
+          productPrice: '960',
+          activityPrice: '895',
           unit: '16斤装',
           imgStyle: 'width: 90%;'
         },
@@ -92,8 +92,8 @@ export default {
           header: '羊肉坐飞机',
           headersub: '只为抢“鲜”机',
           productName: '羊脖肉+羊肩肉+羊腱子肉+羊排+羊腩肉+羊蝎子+羊前腿+羊后腿+羊尾骨',
-          productPrice: '1400',
-          activityPrice: '1298',
+          productPrice: '1298',
+          activityPrice: '1198',
           unit: '22斤装',
           imgStyle: 'width: 100%;'
         },

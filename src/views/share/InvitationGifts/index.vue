@@ -196,7 +196,7 @@ export default {
       this.isLoading = false
       const shareText = this.shareText
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
-      const shareImage = 'https://madaoshop.oss-cn-beijing.aliyuncs.com/8021a945-c9ed-44b0-add8-d4e05abf59e6.png'
+      const shareImage = 'https://madaoshop.oss-cn-beijing.aliyuncs.com/c1310170-fae7-4ec7-81bb-b141558062ae.png'
       if(shareCode) {
         const miniPath = `/pages/active/index?invitationCode=${shareCode}&accessUrl=https://shop.madao100.com/sheep/#/newGiftBag`
         const thisenv = this.env
