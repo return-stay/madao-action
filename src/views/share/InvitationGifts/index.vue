@@ -152,7 +152,6 @@ export default {
       this.$http.fetchGet(ActivityInvitationForMe,{
         token: token
       }).then(res=> {
-        console.log(res)
         if(res.code === 100) {
           let friendList = res.data.userList
           for(let i = 0;i<friendList.length;i++) {
@@ -198,7 +197,7 @@ export default {
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
       const shareImage = 'https://madaoshop.oss-cn-beijing.aliyuncs.com/c1310170-fae7-4ec7-81bb-b141558062ae.png'
       if(shareCode) {
-        const miniPath = `/pages/active/index?invitationCode=${shareCode}&accessUrl=https://shop.madao100.com/sheep/#/newGiftBag`
+        let miniPath = `/pages/invite/index?invitationCode=${shareCode}&accessUrl=https://shop.madao100.com/sheep/#/newGiftBag`
         const thisenv = this.env
         switch(thisenv) {
           case 'ios':

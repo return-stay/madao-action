@@ -71,30 +71,23 @@ export default {
           id: 1,
           title: '无门槛',
           text: '全场通用',
-          money: 50,
-          moneyText: '满520元可用'
+          money: 100,
+          moneyText: '满1200元可用'
         },
         {
           id: 2,
           title: '无门槛',
           text: '全场通用',
-          money: 20,
-          moneyText: '满365元可用'
+          money: 65,
+          moneyText: '满900元可用'
         },
         {
           id: 3,
           title: '无门槛',
           text: '全场通用',
-          money: 20,
-          moneyText: '满365元可用'
+          money: 30,
+          moneyText: '满450元可用'
         },
-        {
-          id: 4,
-          title: '无门槛',
-          text: '全场通用',
-          money: 10,
-          moneyText: '满199元可用'
-        }
       ],
       env: 'ios',
       productList: [
@@ -176,12 +169,12 @@ export default {
             this.showCoupon = true
             this.getActivityCheckJoinAct()
           }else if (res.code == 105 || res.code == 106) {
-            let url = '/pages/login/selectLogin'
+            let url = '/pages/login/selectLogin?invitationCode=' + shareCode + '&channel=1226'
             wx.miniProgram.navigateTo({ url })
           }
         })
       }else {
-        let url = '/pages/login/selectLogin'
+        let url = '/pages/login/selectLogin?invitationCode=' + shareCode + '&channel=1226'
         wx.miniProgram.navigateTo({ url })
       }
     },
