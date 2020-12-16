@@ -96,20 +96,19 @@ export default {
   mounted() {},
   methods: {
     goGoodsInfo() {
-      let id = this.goodsItem.id
-      const shareText = this.shareText
+      const { id, skuId } = this.goodsItem, shareText = this.shareText
       mobileType((style) => {
         switch(style) {
           case 'ios':
             console.log('MyJSInterface.intentGoodsInfo')
-            window.location.href = `intentGoodsInfo?id=${id}`
+            window.location.href = `intentGoodsInfo?id=${id}&skuid=${skuId}`
           break;
           case 'android':
             console.log('MyJSInterface.intentGoodsInfo')
             MyJSInterface.intentGoodsInfo(id)
           break;
           case 'wx':
-            wx.miniProgram.navigateTo({url: `/pages/goods/detail?id=${id}`})
+            wx.miniProgram.navigateTo({url: `/pages/goods/detail?id=${id}&skuid=${skuId}`})
           break;
           default:
             

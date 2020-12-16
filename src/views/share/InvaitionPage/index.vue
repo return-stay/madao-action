@@ -93,6 +93,7 @@ export default {
       productList: [
         {
           id: 1334,
+          skuId: 1869,
           productCover: three,
           title: '半只羊精品装',
           header: '维生素、蛋白质含量高',
@@ -105,6 +106,7 @@ export default {
         },
         {
           id: 1335,
+          skuId: 1870,
           productCover: two,
           title: '半只羊实惠装',
           header: '送礼有面子',
@@ -117,6 +119,7 @@ export default {
         },
         {
           id: 1336,
+          skuId: 1843,
           productCover: one,
           title: '半只羊全装',
           header: '羊肉坐飞机',
