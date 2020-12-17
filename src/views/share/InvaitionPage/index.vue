@@ -166,7 +166,7 @@ export default {
       const shareCode = this.$route.query.sharecode
       const ActivityJoinActAndCouponToken = ActivityJoinActAndCoupon + '?token=' + token
       if(token && token !== 'undefined') {
-        this.$http.fetchPost(ActivityJoinActAndCouponToken, { activityCode: 'invitation' }).then(res=> {
+        this.$http.fetchPost(ActivityJoinActAndCouponToken, { activityCode: '1226' }).then(res=> {
           console.log(res)
           if(res.code === 100) {
             this.showCoupon = true
@@ -184,7 +184,7 @@ export default {
     getActivityCheckJoinAct() {
       const token = this.$route.query.token
       const shareCode = this.$route.query.sharecode
-      this.$http.fetchGet(ActivityCheckJoinAct, {code: 'invitation',token: token, shareCode }).then(res => {
+      this.$http.fetchGet(ActivityCheckJoinAct, {code: '1226',token: token, shareCode }).then(res => {
         if (res.code === 100) {
           this.activityCheckJoinActCode = res.data
         }else {
