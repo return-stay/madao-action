@@ -110,7 +110,7 @@
       </div>
       <div @click="showShare = false" class="cancel">取消</div>
     </van-action-sheet>
-    <div class="yindao-box" v-if="showYinDao" @click="showYinDao = false" >
+    <div class="yindao-box" v-if="showGuide" @click="showGuide = false" >
       <img class="yindao-img" src="../../../assets/img/sheep/yindao.png" alt="">
       <div class="yindao-text">点击右上角按钮，分享给朋友</div>
     </div>
@@ -129,7 +129,7 @@ export default {
     return {
       isLoading: false,
       showShare: false,
-      showYinDao: false,
+      showGuide: false,
       shareText: '码道商城，为价值而生，优选好物，惊喜连连',
       active: 0,
       barrageList: [], // 头部弹幕
@@ -196,7 +196,7 @@ export default {
       const shareText = this.shareText
       const shareCode = this.$route.query.sharecode || getCookie('sharecode')
       const shareImage = 'https://madaoshop.oss-cn-beijing.aliyuncs.com/c1310170-fae7-4ec7-81bb-b141558062ae.png'
-      if(shareCode) {
+      if(shareCode && shareCode !== 'undefined') {
         let miniPath = `/pages/invite/index?invitationCode=${shareCode}&accessUrl=https://shop.madao100.com/sheep/#/newGiftBag`
         const thisenv = this.env
         switch(thisenv) {
@@ -219,7 +219,7 @@ export default {
                 imageUrl: shareImage,
               }
             })
-            this.showYinDao = true
+            this.showGuide = true
             break;
           default:
         }
@@ -232,7 +232,7 @@ export default {
     shareFriends() {
       const routeQuery = this.$route.query
       const token = routeQuery.token || getCookie('token')
-      if(token) {
+      if(token && token !== 'undefined') {
         let params = {
           code: '1226',
           token: routeQuery.token

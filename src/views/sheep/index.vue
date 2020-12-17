@@ -62,7 +62,7 @@ export default {
       env: 'ios',
       productList: [
         {
-          id: 1334,
+          id: 1336,
           skuId: 1869,
           productCover: three,
           title: '半只羊精品装',
@@ -75,7 +75,7 @@ export default {
           imgStyle: 'width: 95%;'
         },
         {
-          id: 1335,
+          id: 1336,
           skuId: 1870,
           productCover: two,
           title: '半只羊实惠装',

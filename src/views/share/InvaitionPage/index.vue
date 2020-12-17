@@ -92,7 +92,7 @@ export default {
       env: 'ios',
       productList: [
         {
-          id: 1334,
+          id: 1336,
           skuId: 1869,
           productCover: three,
           title: '半只羊精品装',
@@ -105,7 +105,7 @@ export default {
           imgStyle: 'width: 95%;'
         },
         {
-          id: 1335,
+          id: 1336,
           skuId: 1870,
           productCover: two,
           title: '半只羊实惠装',
@@ -165,7 +165,7 @@ export default {
       const token = this.$route.query.token
       const shareCode = this.$route.query.sharecode
       const ActivityJoinActAndCouponToken = ActivityJoinActAndCoupon + '?token=' + token
-      if(token) {
+      if(token && token !== 'undefined') {
         this.$http.fetchPost(ActivityJoinActAndCouponToken, { activityCode: 'invitation' }).then(res=> {
           console.log(res)
           if(res.code === 100) {
