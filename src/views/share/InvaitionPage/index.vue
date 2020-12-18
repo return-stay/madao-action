@@ -3,14 +3,14 @@
     <div class="top">
       <img class="bg-calss" src="../../../assets/img/invation-bg.png" alt="">
       <div class="text">
-        <div v-if="activityCheckJoinActCode == 1">
+        <div v-if="activityCheckJoinActCode == 1" class="text-box">
           <p>快去领取您的转服福利吧～</p>
         </div>
-        <div v-else-if="activityCheckJoinActCode == 3">
+        <div v-else-if="activityCheckJoinActCode == 3" class="text-box">
           <p>恭喜你领券成功，快去和你的好物不期而遇吧～</p>
         </div>
-        <p v-else-if="activityCheckJoinActCode == 2">此福利仅限新用户领取～</p>
-        <div v-else-if="activityCheckJoinActCode == 4">
+        <p v-else-if="activityCheckJoinActCode == 2" class="text-box">此福利仅限新用户领取～</p>
+        <div v-else-if="activityCheckJoinActCode == 4" class="text-box">
           <p>不能邀请自己哦～       快去邀请好友下单吧</p>
         </div>
       </div>
@@ -324,6 +324,13 @@ export default {
       font-size 0.2rem
       font-weight bold
       line-height 0.4rem
+      .text-box 
+        width: 5.5rem
+        margin: 0 auto
+        height 0.4rem
+        line-height 0.4rem
+        background-color #990019
+        border-radius .1rem
     .go-btn
       position absolute 
       top 6.84rem
