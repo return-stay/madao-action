@@ -18,13 +18,21 @@
 
     <script src="https://static.jmlk.co/scripts/dist/jmlink.min.js"></script>
 
-    <script>
+    <script defer>
       sessionStorage.removeItem("token")
       sessionStorage.removeItem("sharecode")
       function appSetTokenAndShareCode(str, code) {
         sessionStorage.setItem("token",str)
         sessionStorage.setItem("sharecode",code);           
       }
+      
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?7675760639f8fcd59f0cec9de1bfc887";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
     </script>
   </body>
 </html>
