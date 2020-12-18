@@ -33,7 +33,7 @@ export default {
           params: params
         })
         .then(res => {
-          console.log(res)
+          // console.log(res)
           resolve(res.data)
         })
         .catch(error => {

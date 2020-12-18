@@ -117,8 +117,6 @@ export default {
         }
         const that = this
       this.$http.fetchGet(ActivityDetail, params).then(res => {
-        console.log(res)
-
         if(res.code === 100) {
           const resdata = res.data;
           let plist = resdata.productDTOList
