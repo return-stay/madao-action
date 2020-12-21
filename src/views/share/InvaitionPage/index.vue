@@ -339,10 +339,11 @@ export default {
       width 3rem
       height 0.8rem
       color: #fff
-      background-color #f5bb41
+      background-color #ffc600
       line-height 0.8rem;
       text-align  center
       border-radius 0.4rem;
+      box-shadow: #ff6e02 0px 0px 10px inset;
       .go-btn_img
         width 100%
         height 100%
