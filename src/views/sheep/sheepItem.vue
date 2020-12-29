@@ -195,13 +195,13 @@ export default {
   margin-left: -0.3rem;
 }
 .si-name>p {
-  height: 0.32rem;
+  /* height: 0.32rem; */
   line-height: 0.32rem;
   margin-bottom: 0.08rem;
 }
 
 .si-price {
-  margin-top: 0.66rem;
+  margin-top: 0.16rem;
   color: #372627;
   opacity: 0.5;
 }

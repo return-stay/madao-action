@@ -79,8 +79,8 @@ export default {
                 random = "0" + random;
             }
 
-            const taocanArr = ['羊酮体30kg（半只羊）', '羊酮体20kg（一只羊）', '羊酮体30kg（一只半羊）', '羊酮体40kg（两只羊）']
-            const taocanNum = Math.floor(Math.random() * 4)
+            const taocanArr = ['半只羊套装(22斤装)', '半只羊精品装(10斤装)']
+            const taocanNum = Math.floor(Math.random() * 2)
 
             let randomText = `尾号${random}用户`
             arr.push({
