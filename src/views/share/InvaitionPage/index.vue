@@ -14,10 +14,10 @@
           <p>不能邀请自己哦～       快去邀请好友下单吧</p>
         </div>
       </div>
-      <div class="go-btn">
+      <!-- <div class="go-btn">
         <div  v-if="activityCheckJoinActCode == 1" @click="getCoupon">立即领取</div>
         <div  v-else @click="goHome">去看看</div>
-      </div>
+      </div> -->
 
     </div>
     <div class="recommend-annual">
