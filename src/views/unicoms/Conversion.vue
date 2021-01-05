@@ -45,6 +45,7 @@ export default {
   data() {
     return {
       inputValue: '',
+      env: '',
       noQueryAnalogous: false, //不获取好物
       isLoadQuery: true, //是否获取更多
       pageNumber: 1,
@@ -54,6 +55,7 @@ export default {
   mounted() {
     document.title = '奖品兑换'
     this.init()
+    this.env = mobileType()
     window.addEventListener("scroll", this.scrollToTop)
   },
   methods: {
@@ -63,25 +65,48 @@ export default {
     checkCode () {
       const that = this
       const {token, addressId} = this.$route.query
-      const code = this.inputValue
-      this.$http.fetchGet(PrizeQueryCode, {
-        code,
-        token,
-      }).then(res=> {
-        console.log(res)
-        if(res.code === 100) {
-          that.$router.push({
-            path: '/unicom365',
-            query: {
-              token,
-              code,
-              addressId,
-            }
+      if(token && token !=='undefined') {
+        const code = this.inputValue
+        this.$http.fetchGet(PrizeQueryCode, {
+          code,
+          token,
+        }).then(res=> {
+          console.log(res)
+          if(res.code === 100) {
+            that.$router.push({
+              path: '/unicom365',
+              query: {
+                token,
+                code,
+                addressId,
+              }
+            })
+          }else {
+            this.$toast(res.message)
+          }
+        })
+      }else {
+        this.goLogin()
+      }
+    },
+    // 去往登录页
+    goLogin () {
+      const thisenv = this.env
+      switch(thisenv) {
+        case 'ios':
+          window.location.href = `login?channel=1226`
+          break;
+        case 'android':
+          MyJSInterface.userLogin('1226')
+          break;
+        case 'wx':
+          wx.miniProgram.navigateTo({
+            url: `/pages/login/selectLogin?channel=1226`
           })
-        }else {
-          this.$toast(res.message)
-        }
-      })
+          break;
+        default:
+      }
+      this.showShare = false
     },
     confim () {
       console.log(this.inputValue)
@@ -120,23 +145,22 @@ export default {
       }
     },
     goRecomend(id) {
-      mobileType((type) => {
-        switch(type) {
-          case 'wx':
-            wx.miniProgram.navigateTo({
-              url: '/pages/goods/detail?id=' + id
-            })
-            break;
-          case 'android':
-            MyJSInterface.intentGoodsInfo(id)
-            break;
-          case 'ios':
-            window.location.href = `intentGoodsInfo?id=` + id
-            break;
-          default:
-            window.location.href = `https://shop.madao100.com/web/#/shopDetail?id=${id}`
-        }
-      })
+      const type = this.env
+      switch(type) {
+        case 'wx':
+          wx.miniProgram.navigateTo({
+            url: '/pages/goods/detail?id=' + id
+          })
+          break;
+        case 'android':
+          MyJSInterface.intentGoodsInfo(id)
+          break;
+        case 'ios':
+          window.location.href = `intentGoodsInfo?id=` + id
+          break;
+        default:
+          window.location.href = `https://shop.madao100.com/web/#/shopDetail?id=${id}`
+      }
     },
     // 获取好物推荐
     getQueryAnalogous() {

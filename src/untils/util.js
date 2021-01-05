@@ -183,9 +183,6 @@ const formatDate = (value, fmt)=> {
 
 
 const mobileType = (callback) => {
-  const u = navigator.userAgent
-  const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 // android终端
-  const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) // ios终端
   var ua = navigator.userAgent.toLowerCase();
   if(ua.match(/MicroMessenger/i)=="micromessenger") {
       wx.miniProgram.getEnv((res)=>{
@@ -195,6 +192,9 @@ const mobileType = (callback) => {
         }
       })
   }else{     //都不在
+    const u = navigator.userAgent,
+      isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, // android终端
+      isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) // ios终端
     if (isAndroid) {
       callback&& callback('android')     
     } else if (isiOS) {
