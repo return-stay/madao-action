@@ -10,6 +10,7 @@
 
 <script>
 import { PrizeQueryCode } from '../../api/url'
+import {mobileType} from '../../untils/util'
 export default {
   name: 'Conversion',
   data() {
