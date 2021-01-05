@@ -14,11 +14,13 @@ export default {
   name: 'Conversion',
   data() {
     return {
+      env: '',
       inputValue: ''
     }
   },
   mounted() {
     document.title = '奖品兑换'
+    this.env = mobileType()
   },
   methods: {
     checkCode () {
