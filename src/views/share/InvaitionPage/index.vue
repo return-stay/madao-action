@@ -2,9 +2,9 @@
   <div class="invation-page">
     <div class="top">
       <img class="bg-calss" src="../../../assets/img/invation-bg.png" alt="">
-      <div class="text">
+      <!-- <div class="text">
         <div v-if="activityCheckJoinActCode == 1" class="text-box">
-          <p>快去领取您的转服福利吧～</p>
+          <p>快去领取您的专属福利吧～</p>
         </div>
         <div v-else-if="activityCheckJoinActCode == 3" class="text-box">
           <p>恭喜你领券成功，快去和你的好物不期而遇吧～</p>
@@ -13,12 +13,11 @@
         <div v-else-if="activityCheckJoinActCode == 4" class="text-box">
           <p>不能邀请自己哦～       快去邀请好友下单吧</p>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="go-btn">
         <div  v-if="activityCheckJoinActCode == 1" @click="getCoupon">立即领取</div>
         <div  v-else @click="goHome">去看看</div>
       </div> -->
-
     </div>
     <div class="recommend-annual">
       <!-- <div class="recommend-title">
@@ -168,7 +167,20 @@ export default {
         wx.miniProgram.navigateTo({ url })
       }
     },
+    judgeLogin() {
+      const token = this.$route.query.token
+      const shareCode = this.$route.query.sharecode
+      if(!token || token === 'undefined') {
+        console.log('token')
+        let url = '/pages/login/selectLogin?invitationCode=' + shareCode + '&channel=1226'
+        wx.miniProgram.navigateTo({ url })
+        return false
+      }else {
+        return true
+      }
+    },
     getActivityCheckJoinAct() {
+      console.log('jjjjj')
       const token = this.$route.query.token
       const shareCode = this.$route.query.sharecode
       this.$http.fetchGet(ActivityCheckJoinAct, {code: '1226',token: token, shareCode }).then(res => {
@@ -202,9 +214,11 @@ export default {
   },
   mounted() {
     document.title = '邀请有礼'
-
     this.testMobileType()
-    this.getActivityCheckJoinAct()
+    if(this.judgeLogin()) {
+      this.getActivityCheckJoinAct()
+    }
+   
   }
 }
 </script>
