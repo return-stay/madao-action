@@ -24,25 +24,47 @@ export default {
     checkCode () {
       const that = this
       const {token, addressId} = this.$route.query
-      const code = this.inputValue
-      this.$http.fetchGet(PrizeQueryCode, {
-        code,
-        token,
-      }).then(res=> {
-        console.log(res)
-        if(res.code === 100) {
-          that.$router.push({
-            path: '/unicom365',
-            query: {
-              token,
-              code,
-              addressId,
-            }
+      if(token && token !=='undefined') {
+        const code = this.inputValue
+        this.$http.fetchGet(PrizeQueryCode, {
+          code,
+          token,
+        }).then(res=> {
+          console.log(res)
+          if(res.code === 100) {
+            that.$router.push({
+              path: '/unicom365',
+              query: {
+                token,
+                code,
+                addressId,
+              }
+            })
+          }else {
+            this.$toast(res.message)
+          }
+        })
+      }else {
+        this.goLogin()
+      }
+    },
+    // 去往登录页
+    goLogin () {
+      const thisenv = this.env
+      switch(thisenv) {
+        case 'ios':
+          window.location.href = `login?channel=1226`
+          break;
+        case 'android':
+          MyJSInterface.userLogin('1226')
+          break;
+        case 'wx':
+          wx.miniProgram.navigateTo({
+            url: `/pages/login/selectLogin?channel=1226`
           })
-        }else {
-          this.$toast(res.message)
-        }
-      })
+          break;
+        default:
+      }
     },
     confim () {
       console.log(this.inputValue)
