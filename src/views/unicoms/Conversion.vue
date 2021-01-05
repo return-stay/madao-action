@@ -55,7 +55,9 @@ export default {
   mounted() {
     document.title = '奖品兑换'
     this.init()
-    this.env = mobileType()
+    mobileType((type)=> {
+      this.env = type
+    })
     window.addEventListener("scroll", this.scrollToTop)
   },
   methods: {
