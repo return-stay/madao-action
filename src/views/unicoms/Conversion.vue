@@ -15,13 +15,11 @@ export default {
   name: 'Conversion',
   data() {
     return {
-      env: '',
       inputValue: ''
     }
   },
   mounted() {
     document.title = '奖品兑换'
-    this.env = mobileType()
   },
   methods: {
     checkCode () {
@@ -53,21 +51,23 @@ export default {
     },
     // 去往登录页
     goLogin () {
-      const thisenv = this.env
-      switch(thisenv) {
-        case 'ios':
-          window.location.href = `login?channel=1226`
-          break;
-        case 'android':
-          MyJSInterface.userLogin('1226')
-          break;
-        case 'wx':
-          wx.miniProgram.navigateTo({
-            url: `/pages/login/selectLogin?channel=1226`
-          })
-          break;
-        default:
-      }
+      mobileType((type) => {
+        switch(type) {
+          case 'ios':
+            window.location.href = `login?channel=1226`
+            break;
+          case 'android':
+            MyJSInterface.userLogin('1226')
+            break;
+          case 'wx':
+            wx.miniProgram.navigateTo({
+              url: `/pages/login/selectLogin?channel=1226`
+            })
+            break;
+          default:
+        }
+      })
+      
     },
     confim () {
       console.log(this.inputValue)
